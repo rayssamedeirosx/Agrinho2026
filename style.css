@@ -1,10 +1,9 @@
 :root {
-    --primary: #2e7d32;      /* Verde Escuro Botões/Footer */
-    --secondary: #4caf50;    /* Verde Vivo */
-    --light-bg: #f1f8e9;     /* Fundo bem clarinho sutil */
-    --dark-text: #1b5e20;    /* Texto destacado */
-    --text-color: #333333;
-    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --primary-green: #0b5125;   /* O verde escuro exato do cabeçalho e rodapé */
+    --accent-green: #07401c;    /* Tom ainda mais escuro para hover */
+    --card-bg: #f4f9f1;         /* O fundo bege/esverdeado bem claro dos cards */
+    --text-dark: #0b5125;       /* Títulos em verde escuro */
+    --text-body: #333333;
 }
 
 * {
@@ -15,9 +14,8 @@
 }
 
 body {
-    color: var(--text-color);
     background-color: #ffffff;
-    line-height: 1.6;
+    color: var(--text-body);
 }
 
 .container {
@@ -31,29 +29,14 @@ body {
 }
 
 .bgcolor {
-    background-color: var(--light-bg);
-}
-
-.text-center {
-    text-align: center;
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.section-title h2 {
-    color: var(--dark-text);
-    font-size: 2.2rem;
-    margin-bottom: 10px;
-}
-
-/* HEADER */
-header {
     background-color: #ffffff;
+}
+
+/* 🟢 CABEÇALHO (Igual ao topo de 1000275031.jpg) */
+header {
+    background-color: var(--primary-green);
+    color: white;
     padding: 15px 0;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -63,28 +46,28 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
 }
 
 .logo {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 12px;
 }
 
 #logo-img {
-    height: 60px;
+    height: 50px;
     width: auto;
 }
 
 .logo-texto h1 {
     font-size: 1.6rem;
-    color: var(--dark-text);
+    color: white;
+    font-weight: bold;
 }
 
 .logo-texto p {
-    font-size: 0.85rem;
-    color: #666;
+    font-size: 0.8rem;
+    color: #e0e0e0;
 }
 
 nav ul {
@@ -95,262 +78,184 @@ nav ul {
 
 nav ul li a {
     text-decoration: none;
-    color: var(--text-color);
-    font-weight: 600;
-    font-size: 0.95rem;
-    transition: color 0.3s;
+    color: white;
+    font-size: 0.9rem;
+    transition: opacity 0.2s;
 }
 
 nav ul li a:hover {
-    color: var(--secondary);
+    opacity: 0.8;
 }
 
-/* HERO SECTION */
+/* 🌾 SEÇÃO PRINCIPAL (BANNER HERO) */
 .hero-section {
-    padding: 60px 0;
+    padding: 40px 0;
     background-color: #ffffff;
 }
 
 .hero-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.2fr 0.8fr;
     align-items: center;
-    gap: 40px;
+    gap: 20px;
 }
 
 .hero-text h2 {
-    font-size: 2.8rem;
-    color: var(--dark-text);
-    line-height: 1.2;
+    font-size: 3rem;
+    color: var(--primary-green);
+    font-weight: 800;
+    line-height: 1.1;
     margin-bottom: 20px;
 }
 
 .hero-text p {
     font-size: 1.2rem;
-    color: #555;
+    color: #444;
     margin-bottom: 30px;
+    line-height: 1.4;
 }
 
+/* Botão Verde de Consulta */
 .btn-principal {
     display: inline-block;
-    background-color: var(--dark-text);
-    color: #fff;
-    padding: 12px 30px;
-    border-radius: 30px;
+    background-color: var(--primary-green);
+    color: white;
+    padding: 14px 28px;
+    border-radius: 8px;
     text-decoration: none;
     font-weight: bold;
-    transition: background 0.3s;
+    transition: background 0.2s;
 }
 
 .btn-principal:hover {
-    background-color: var(--primary);
+    background-color: var(--accent-green);
+}
+
+/* Imagem Oval do Trator/Fazenda */
+.hero-image {
+    text-align: right;
 }
 
 .img-banner {
     width: 100%;
-    border-radius: 20px;
+    max-width: 500px;
+    border-radius: 50%; /* Torna a imagem oval como no design */
+    object-fit: cover;
 }
 
-/* FORMULÁRIOS E BOTÕES */
-input[type="text"], input[type="number"], select {
-    width: 100%;
-    padding: 12px;
+/* 📦 CARDS DAS FERRAMENTAS (Estilo idêntico ao meio de 1000275031.jpg) */
+.grid-ferramentas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.card-ferramenta {
+    background-color: var(--card-bg);
+    border-radius: 18px;
+    padding: 25px 15px;
+    text-align: center;
+    border: 1px solid #e1ebe0;
+    transition: transform 0.2s;
+}
+
+.card-ferramenta:hover {
+    transform: translateY(-3px);
+}
+
+.icon-box {
+    font-size: 2.5rem;
+    color: var(--primary-green);
     margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 1rem;
 }
 
-button {
-    background-color: var(--dark-text);
-    color: white;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 1rem;
-    transition: background 0.3s;
-}
-
-button:hover {
-    background-color: var(--primary);
-}
-
-.btn-block {
-    width: 100%;
-}
-
-.grid-2col {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-/* FERRAMENTA DE BUSCA */
-.search-box {
-    display: flex;
-    gap: 10px;
-    max-width: 600px;
-    margin: 0 auto 30px auto;
-}
-
-.search-box input {
-    margin-bottom: 0;
-}
-
-.result-card {
-    background: white;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: var(--card-shadow);
-    border-left: 5px solid var(--secondary);
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.grid-resultado {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    margin-top: 15px;
-}
-
-/* CALCULADORA */
-.card-branco {
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: var(--card-shadow);
-}
-
-.resultado-calculadora {
-    background: var(--dark-text);
-    color: white;
-    padding: 30px;
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.calc-placeholder {
-    font-style: italic;
-    color: #e0e0e0;
-}
-
-.metric {
-    margin-bottom: 20px;
-}
-
-.metric .number {
-    display: block;
-    font-size: 2.3rem;
-    font-weight: bold;
-    color: #a5d6a7;
-}
-
-/* QUIZ SUSTENTABILIDADE */
-.quiz-container {
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    max-width: 800px;
-    margin: 0 auto;
-    box-shadow: var(--card-shadow);
-}
-
-.quiz-item {
-    margin-bottom: 20px;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 15px;
-}
-
-.quiz-item p {
-    font-weight: 600;
+.card-ferramenta h3 {
+    color: var(--text-dark);
+    font-size: 1.1rem;
     margin-bottom: 10px;
 }
 
-.quiz-item label {
-    display: block;
-    margin-bottom: 8px;
-    cursor: pointer;
+.card-ferramenta p {
+    font-size: 0.85rem;
+    color: #555;
+    line-height: 1.4;
 }
 
-.result-quiz {
-    margin-top: 25px;
-    padding: 20px;
-    border-radius: 8px;
-    background-color: #e8f5e9;
-    border-index: 1px solid #c8e6c9;
-}
-
-/* MAPA */
-.ponto-card {
-    background: white;
-    padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    box-shadow: var(--card-shadow);
-    border-left: 4px solid var(--secondary);
-}
-
-.mapa-simulado {
-    background: #e2e8f0;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+/* Bloco Interno das Ferramentas Interativas */
+.card-branco {
+    background: var(--card-bg);
     padding: 30px;
-    border: 2px dashed #cbd5e1;
+    border-radius: 18px;
+    border: 1px solid #e1ebe0;
 }
 
-/* ESTATÍSTICAS */
-.chart-container {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: var(--card-shadow);
-}
-
-.chart-container h4 {
-    margin-bottom: 15px;
-    text-align: center;
-    color: var(--dark-text);
-}
-
-/* CITAÇÃO */
-.citacao-section {
-    background-color: var(--dark-text);
+.resultado-calculadora {
+    background: var(--primary-green);
     color: white;
+    padding: 30px;
+    border-radius: 18px;
+}
+
+input[type="text"], input[type="number"], select {
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 12px;
+}
+
+button {
+    background-color: var(--primary-green);
+    border-radius: 8px;
+}
+
+button:hover {
+    background-color: var(--accent-green);
+}
+
+/* 💬 CITAÇÃO SHIVA */
+.citacao-section {
     padding: 40px 0;
+    background-color: #ffffff;
+    border-top: 1px dashed #ccc;
+    border-bottom: 1px dashed #ccc;
+    margin: 40px 0;
 }
 
 .frase-citacao {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-style: italic;
-    max-width: 800px;
+    color: var(--primary-green);
+    font-weight: 600;
+    max-width: 850px;
     margin: 0 auto 10px auto;
 }
 
-/* FOOTER */
+.autor-citacao {
+    font-size: 0.9rem;
+    color: #444;
+    font-weight: bold;
+}
+
+/* 🛑 RODAPÉ (Igual à base escura de 1000275031.jpg) */
 footer {
-    background-color: #113313;
-    color: #e2e8f0;
-    padding: 40px 0 20px 0;
+    background-color: var(--primary-green);
+    color: #f5f5f5;
+    padding: 50px 0 20px 0;
+    font-size: 0.9rem;
 }
 
 .footer-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: 1fr 0.8fr 1.2fr 1fr;
     gap: 30px;
-    margin-bottom: 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 30px;
 }
 
 .footer-grid h3, .footer-grid h4 {
     color: white;
     margin-bottom: 15px;
+    font-size: 1.1rem;
 }
 
 .footer-links {
@@ -362,7 +267,7 @@ footer {
 }
 
 .footer-links li a {
-    color: #cbd5e1;
+    color: #e0e0e0;
     text-decoration: none;
 }
 
@@ -371,10 +276,12 @@ footer {
 }
 
 .footer-bottom {
-    text-align: center;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding-top: 20px;
-    font-size: 0.9rem;
+    color: #cbd5e1;
+    font-size: 0.85rem;
 }
 
 .hidden {
@@ -382,6 +289,6 @@ footer {
 }
 
 @media(max-width: 768px) {
-    .hero-grid { grid-template-columns: 1fr; }
+    .hero-grid, .footer-grid { grid-template-columns: 1fr; }
     .header-container { flex-direction: column; gap: 15px; }
 }
