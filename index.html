@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Colheita do Futuro - Agrinho 2026</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Biblioteca para os Gráficos Dinâmicos -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
+    <!-- CABEÇALHO -->
     <header>
         <div class="container header-container">
             <div class="logo">
@@ -23,7 +25,6 @@
                     <li><a href="#inicio">Início</a></li>
                     <li><a href="#consulta">Consultar Resíduos</a></li>
                     <li><a href="#calculadora">Calculadora</a></li>
-                    <li><a href="#sustentabilidade">Sustentabilidade</a></li>
                     <li><a href="#pontos">Pontos de Coleta</a></li>
                     <li><a href="#estatisticas">Estatísticas</a></li>
                 </ul>
@@ -31,6 +32,7 @@
         </div>
     </header>
 
+    <!-- 🏠 SEÇÃO INICIAL (DESIGN LIMPO SEM IMAGEM) -->
     <section id="inicio" class="hero-section">
         <div class="container hero-centralizado">
             <div class="hero-text">
@@ -39,6 +41,7 @@
                 <a href="#consulta" class="btn-principal">🔍 Consultar Resíduos</a>
             </div>
             
+            <!-- Badges visuais modernas para preencher o espaço -->
             <div class="hero-badges">
                 <div class="badge-item">
                     <span>🌱</span>
@@ -56,6 +59,7 @@
         </div>
     </section>
 
+    <!-- 🔍 SEÇÃO DE CARDS RESUMO DAS FERRAMENTAS -->
     <section class="section-padding bgcolor">
         <div class="container">
             <div class="grid-ferramentas">
@@ -68,11 +72,6 @@
                     <div class="icon-box">🧮</div>
                     <h3>Calculadora</h3>
                     <p>Calcule o impacto ambiental e veja os benefícios das suas ações.</p>
-                </div>
-                <div class="card-ferramenta">
-                    <div class="icon-box">🌱</div>
-                    <h3>Sustentabilidade</h3>
-                    <p>Descubra seu índice de sustentabilidade rural e receba sugestões.</p>
                 </div>
                 <div class="card-ferramenta">
                     <div class="icon-box">📍</div>
@@ -88,6 +87,7 @@
         </div>
     </section>
 
+    <!-- 🔍 CONSULTA INTELIGENTE DE RESÍDUOS -->
     <section id="consulta" class="section-padding">
         <div class="container">
             <div class="section-title">
@@ -112,6 +112,7 @@
         </div>
     </section>
 
+    <!-- 📊 CALCULADORA DE IMPACTO AMBIENTAL -->
     <section id="calculadora" class="section-padding bgcolor">
         <div class="container">
             <div class="section-title">
@@ -151,44 +152,8 @@
         </div>
     </section>
 
-    <section id="sustentabilidade" class="section-padding">
-        <div class="container">
-            <div class="section-title">
-                <h2>🌱 Índice de Sustentabilidade Rural</h2>
-                <p>Responda às perguntas para avaliar as práticas adotadas na propriedade ou comunidade.</p>
-            </div>
-
-            <div class="quiz-container">
-                <div class="quiz-item">
-                    <p>1. Como é feita a destinação das embalagens de defensivos agrícolas?</p>
-                    <label><input type="radio" name="q1" value="10"> Realizamos a tríplice lavagem e devolvemos nos postos autorizados.</label>
-                    <label><input type="radio" name="q1" value="0"> Guardamos no galpão ou queimamos/enterramos.</label>
-                </div>
-
-                <div class="quiz-item">
-                    <p>2. Qual o destino dado ao óleo usado de tratores ou de cozinha?</p>
-                    <label><input type="radio" name="q2" value="10"> Armazenamos em galões e entregamos para empresas de reciclagem.</label>
-                    <label><input type="radio" name="q2" value="0"> Descartamos diretamente no solo ou na rede comum.</label>
-                </div>
-
-                <div class="quiz-item">
-                    <p>3. As pilhas, baterias e lixo eletrônico são separados?</p>
-                    <label><input type="radio" name="q3" value="10"> Sim, são separados e levados a pontos de coleta específicos.</label>
-                    <label><input type="radio" name="q3" value="0"> Não, vão junto com o lixo comum.</label>
-                </div>
-
-                <button class="btn-block" onclick="calcularIndice()">Verificar Diagnóstico</button>
-
-                <div id="resultadoQuiz" class="result-quiz hidden">
-                    <h3>Pontuação: <span id="scoreQuiz">0</span>/30</h3>
-                    <p id="feedbackQuiz"></p>
-                    <div id="sugestoesQuiz"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="pontos" class="section-padding bgcolor">
+    <!-- 📍 MAPA DE PONTOS DE COLETA -->
+    <section id="pontos" class="section-padding">
         <div class="container">
             <div class="section-title">
                 <h2>📍 Mapa de Pontos de Coleta</h2>
@@ -213,17 +178,16 @@
                         <p><strong>Recebe:</strong> Embalagens rígidas com tríplice lavagem.</p>
                     </div>
                 </div>
+                <!-- MAPA REAL INCORPORADO DO GOOGLE MAPS -->
                 <div class="mapa-simulado">
-                    <div class="mapa-placeholder">
-                        <p>📍 <strong>Interface de Localização Coleta Seletiva Móvel</strong></p>
-                        <small>Os pontos de coleta atendem rotas estratégicas integradas na região rural.</small>
-                    </div>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3661.1373516541575!2d-51.9284241!3d-23.4194098!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ebd1098df1211b%3A0xe2be5cf561073809!2sMaring%C3%A1%20-%20PR!5e0!3m2!1spt-BR!2sbr!4v1717880000000!5m2!1spt-BR!2sbr" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="estatisticas" class="section-padding">
+    <!-- 📈 PAINEL DE ESTATÍSTICAS -->
+    <section id="estatisticas" class="section-padding bgcolor">
         <div class="container">
             <div class="section-title">
                 <h2>📈 Painel de Estatísticas</h2>
@@ -243,6 +207,7 @@
         </div>
     </section>
 
+    <!-- 💬 CITAÇÃO DE IMPACTO SHIVA -->
     <section class="citacao-section">
         <div class="container text-center">
             <p class="frase-citacao">"A agricultura sustentável não se trata apenas de cultivar alimentos, trata-se de cuidar do solo, da água, do ar e de todos os seres vivos que dependem deles."</p>
@@ -250,6 +215,7 @@
         </div>
     </section>
 
+    <!-- RODAPÉ -->
     <footer>
         <div class="container footer-grid">
             <div>
@@ -262,7 +228,7 @@
                     <li><a href="#inicio">Início</a></li>
                     <li><a href="#consulta">Consultar Resíduos</a></li>
                     <li><a href="#calculadora">Calculadora</a></li>
-                    <li><a href="#sustentabilidade">Sustentabilidade</a></li>
+                    <li><a href="#pontos">Pontos de Coleta</a></li>
                 </ul>
             </div>
             <div>
@@ -272,8 +238,7 @@
             <div>
                 <h4>Contato</h4>
                 <p>📩 rayssa.barbosa.medeiros@escola.pr.gov.br</p>
-                <div class="redes-sociais">
-                    <span>📸 Instagram</span> &nbsp; <span>👥 Facebook</span>
+            
                 </div>
             </div>
         </div>

@@ -50,7 +50,7 @@ body {
     font-weight: 700;
 }
 
-/* 🟢 CABEÇALHO CORPORATIVO */
+/* 🟢 CABEÇALHO */
 header {
     background-color: var(--primary-green);
     color: white;
@@ -107,7 +107,7 @@ nav ul li a:hover {
     opacity: 0.8;
 }
 
-/* 🌾 SEÇÃO HERO REESTRUTURADA E CENTRALIZADA */
+/* 🌾 SEÇÃO HERO CENTRALIZADA */
 .hero-section {
     padding: 90px 0 70px 0;
     background: linear-gradient(180deg, #f4f9f1 0%, #ffffff 100%);
@@ -137,7 +137,7 @@ nav ul li a:hover {
     font-weight: 500;
 }
 
-/* Botão de Ação Redondo */
+/* Botão de Ação */
 .btn-principal {
     display: inline-block;
     background-color: var(--primary-green);
@@ -157,7 +157,7 @@ nav ul li a:hover {
     transform: translateY(-2px);
 }
 
-/* Badges flutuantes elegantes para equilibrar o espaço */
+/* Badges flutuantes */
 .hero-badges {
     display: flex;
     justify-content: center;
@@ -185,12 +185,13 @@ nav ul li a:hover {
     font-weight: 600;
     color: var(--primary-green);
     font-size: 0.95rem;
+    margin: 0;
 }
 
-/* 📦 CARDS RESUMO DE CONTEÚDO */
+/* 📦 CARDS RESUMO */
 .grid-ferramentas {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
 }
 
@@ -327,41 +328,6 @@ button:hover {
     color: #a5d6a7;
 }
 
-/* QUIZ */
-.quiz-container {
-    background: var(--card-bg);
-    padding: 30px;
-    border-radius: 14px;
-    max-width: 800px;
-    margin: 0 auto;
-    box-shadow: var(--card-shadow);
-}
-
-.quiz-item {
-    margin-bottom: 20px;
-    border-bottom: 1px solid #cbd5e1;
-    padding-bottom: 15px;
-}
-
-.quiz-item p {
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-
-.quiz-item label {
-    display: block;
-    margin-bottom: 8px;
-    cursor: pointer;
-}
-
-.result-quiz {
-    margin-top: 25px;
-    padding: 20px;
-    border-radius: 8px;
-    background-color: #e8f5e9;
-    border: 1px solid #c8e6c9;
-}
-
 /* PONTOS DE COLETA E GRÁFICOS */
 .ponto-card {
     background: white;
@@ -375,12 +341,9 @@ button:hover {
 .mapa-simulado {
     background: #e2e8f0;
     border-radius: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 35px;
-    border: 2px dashed #cbd5e1;
+    overflow: hidden;
+    height: 350px;
+    box-shadow: var(--card-shadow);
 }
 
 .chart-container {
@@ -420,7 +383,7 @@ button:hover {
     font-weight: 700;
 }
 
-/* 🛑 RODAPÉ PADRÃO AGRINHO */
+/* 🛑 RODAPÉ */
 footer {
     background-color: var(--primary-green);
     color: #f8fafc;
@@ -473,10 +436,10 @@ footer {
     display: none !important;
 }
 
-/* RESPONSIVIDADE COMPLETA */
+/* RESPONSIVIDADE */
 @media(max-width: 768px) {
     .hero-text h2 { font-size: 2.2rem; }
-    .hero-grid, .footer-grid, .grid-2col { grid-template-columns: 1fr; }
+    .footer-grid, .grid-2col { grid-template-columns: 1fr; }
     .header-container, .footer-bottom { flex-direction: column; gap: 15px; text-align: center; }
     nav ul { flex-wrap: wrap; justify-content: center; }
     .grid-resultado { grid-template-columns: 1fr; }
