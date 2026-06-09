@@ -1,13 +1,241 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Agrinho2026</title>
-        <meta charset="utf-8"/>
-    </head>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colheita do Futuro - Agrinho 2026</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
 
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="logo.png" alt="Colheita do Futuro" id="logo-img">
+                <div class="logo-texto">
+                    <h1>Colheita do Futuro</h1>
+                    <p>Tecnologia inteligente para construir um agro forte e sustentável</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#consulta">Consultar Resíduos</a></li>
+                    <li><a href="#calculadora">Calculadora</a></li>
+                    <li><a href="#sustentabilidade">Sustentabilidade</a></li>
+                    <li><a href="#pontos">Pontos de Coleta</a></li>
+                    <li><a href="#estatisticas">Estatísticas</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
+    <section id="inicio" class="hero-section">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <h2>Pequenas ações que transformam o meio ambiente!</h2>
+                <p>Descarte corretamente. Recicle. Preserve o campo. Garanta o futuro!</p>
+                <a href="#consulta" class="btn-principal">🔍 Consultar Resíduos</a>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=600&q=80" alt="Campo Sustentável" class="img-banner">
+            </div>
+        </div>
+    </section>
 
+    <section id="consulta" class="section-padding bgcolor">
+        <div class="container">
+            <div class="section-title">
+                <h2>🔍 Consulta Inteligente de Resíduos</h2>
+                <p>Descubra o impacto e a forma correta de destinar cada material no meio rural.</p>
+            </div>
+            
+            <div class="search-box">
+                <input type="text" id="inputBusca" placeholder="Ex: óleo, pilhas, pneus, embalagens agrícolas, plástico...">
+                <button onclick="buscarResiduo()">Pesquisar</button>
+            </div>
 
+            <div id="resultadoBusca" class="result-card hidden">
+                <h3 id="resNome">Nome do Resíduo</h3>
+                <div class="grid-resultado">
+                    <div><strong>⚠️ Riscos Ambientais:</strong> <span id="resRiscos"></span></div>
+                    <div><strong>✅ Descarte Correto:</strong> <span id="resDescarte"></span></div>
+                    <div><strong>♻️ Reciclagem:</strong> <span id="resReciclagem"></span></div>
+                    <div><strong>⏳ Tempo de Decomposição:</strong> <span id="resTempo"></span></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <section id="calculadora" class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>📊 Calculadora de Impacto Ambiental</h2>
+                <p>Simule a quantidade de materiais reciclados ou destinados corretamente e veja o benefício real.</p>
+            </div>
 
+            <div class="grid-2col">
+                <div class="card-branco">
+                    <div class="form-group">
+                        <label for="tipoMaterial">Selecione o Material:</label>
+                        <select id="tipoMaterial">
+                            <option value="oleo">Óleo de Cozinha / Maquinário (Litros)</option>
+                            <option value="pilhas">Pilhas e Baterias (Unidades)</option>
+                            <option value="pneus">Pneus Velhos (Unidades)</option>
+                            <option value="embalagens">Embalagens Agroquímicas (Unidades)</option>
+                            <option value="plastico">Plásticos Gerais (Quilos)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="quantidadeMaterial">Quantidade:</label>
+                        <input type="number" id="quantidadeMaterial" min="1" value="1">
+                    </div>
+                    <button class="btn-block" onclick="calcularImpacto()">Calcular Impacto</button>
+                </div>
+
+                <div class="resultado-calculadora" id="resultadoCalc">
+                    <h3>Seu Impacto Positivo:</h3>
+                    <p class="calc-placeholder">Insira os dados ao lado para calcular os benefícios ecológicos.</p>
+                    <div id="dadosCalc" class="hidden">
+                        <div class="metric"><span class="number" id="calcResiduos">0</span> <span class="label">Desviados do meio ambiente</span></div>
+                        <div class="metric"><span class="number" id="calcTempo">0</span> <span class="label">Anos de decomposição acumulada evitados</span></div>
+                        <div class="metric"><span class="number" id="calcBeneficio">0</span> <span class="label">Efeito ou benefício estimado</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sustentabilidade" class="section-padding bgcolor">
+        <div class="container">
+            <div class="section-title">
+                <h2>🌱 Índice de Sustentabilidade Rural</h2>
+                <p>Responda às perguntas para avaliar as práticas adotadas na propriedade ou comunidade.</p>
+            </div>
+
+            <div class="quiz-container">
+                <div class="quiz-item">
+                    <p>1. Como é feita a destinação das embalagens de defensivos agrícolas?</p>
+                    <label><input type="radio" name="q1" value="10"> Realizamos a tríplice lavagem e devolvemos nos postos autorizados.</label>
+                    <label><input type="radio" name="q1" value="0"> Guardamos no galpão ou queimamos/enterramos.</label>
+                </div>
+
+                <div class="quiz-item">
+                    <p>2. Qual o destino dado ao óleo usado de tratores ou de cozinha?</p>
+                    <label><input type="radio" name="q2" value="10"> Armazenamos em galões e entregamos para empresas de reciclagem.</label>
+                    <label><input type="radio" name="q2" value="0"> Descartamos diretamente no solo ou na rede comum.</label>
+                </div>
+
+                <div class="quiz-item">
+                    <p>3. As pilhas, baterias e lixo eletrônico são separados?</p>
+                    <label><input type="radio" name="q3" value="10"> Sim, são separados e levados a pontos de coleta específicos.</label>
+                    <label><input type="radio" name="q3" value="0"> Não, vão junto com o lixo comum.</label>
+                </div>
+
+                <button class="btn-block" onclick="calcularIndice()">Verificar Diagnóstico</button>
+
+                <div id="resultadoQuiz" class="result-quiz hidden">
+                    <h3>Pontuação: <span id="scoreQuiz">0</span>/30</h3>
+                    <p id="feedbackQuiz"></p>
+                    <div id="sugestoesQuiz"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pontos" class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>📍 Mapa de Pontos de Coleta</h2>
+                <p>Encontre os locais corretos de recebimento de resíduos perto de você.</p>
+            </div>
+
+            <div class="grid-2col">
+                <div class="lista-pontos">
+                    <div class="ponto-card">
+                        <h4>🔋 Posto Central de Eletrônicos & Pilhas</h4>
+                        <p><strong>Onde:</strong> Sindicato Rural / Cooperativa Local</p>
+                        <p><strong>Recebe:</strong> Pilhas, baterias e eletrônicos.</p>
+                    </div>
+                    <div class="ponto-card">
+                        <h4>🛢️ Ecocentro Coleta de Óleos</h4>
+                        <p><strong>Onde:</strong> Barracão da Associação de Produtores</p>
+                        <p><strong>Recebe:</strong> Óleo de cozinha e lubrificantes de máquinas.</p>
+                    </div>
+                    <div class="ponto-card">
+                        <h4>🚜 Central de Recebimento de Embalagens</h4>
+                        <p><strong>Onde:</strong> Posto de Coleta Oficial Autorizado (InPEV)</p>
+                        <p><strong>Recebe:</strong> Embalagens rígidas com tríplice lavagem.</p>
+                    </div>
+                </div>
+                <div class="mapa-simulado">
+                    <div class="mapa-placeholder">
+                        <p>📍 <strong>Interface de Localização Coleta Seletiva Móvel</strong></p>
+                        <small>Os pontos verdes de coleta atendem rotas estratégicas da região.</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="estatisticas" class="section-padding bgcolor">
+        <div class="container">
+            <div class="section-title">
+                <h2>📈 Painel de Estatísticas</h2>
+                <p>Comparações visuais e tempo de decomposição dos materiais.</p>
+            </div>
+
+            <div class="grid-2col">
+                <div class="chart-container">
+                    <h4>Anos de Decomposição dos Materiais</h4>
+                    <canvas id="chartDecomposicao"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h4>Resíduos Mais Pesquisados na Plataforma</h4>
+                    <canvas id="chartMaisBuscados"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="citacao-section">
+        <div class="container text-center">
+            <p class="frase-citacao">"A agricultura sustentável não se trata apenas de cultivar alimentos, trata-se de cuidar do solo, da água, do ar e de todos os seres vivos que dependem deles."</p>
+            <span class="autor-citacao">(SHIVA, [s.d.])</span>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-grid">
+            <div>
+                <h3>Colheita do Futuro</h3>
+                <p>Tecnologia inteligente para construir um agro forte e sustentável.</p>
+            </div>
+            <div>
+                <h4>Links rápidos</h4>
+                <ul class="footer-links">
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#consulta">Consultar Resíduos</a></li>
+                    <li><a href="#calculadora">Calculadora</a></li>
+                    <li><a href="#sustentabilidade">Sustentabilidade</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Sobre o projeto</h4>
+                <p>O projeto "Colheita do Futuro" consiste em um site informativo que tem como principal objetivo mostrar que é possível manter um agro forte sem prejudicar o meio ambiente.</p>
+            </div>
+            <div>
+                <h4>Contato</h4>
+                <p>📩 rayssa.barbosa.medeiros@escola.pr.gov.br</p>
+                <p>Agrinho 2026</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Colheita do Futuro. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
 </html>
