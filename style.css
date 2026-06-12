@@ -1,10 +1,10 @@
 :root {
-    --primary-green: #0b5125;      /* Verde escuro corporativo (Cabeçalho/Rodapé) */
-    --neon-green: #39ff14;         /* VERDE NEON para o efeito ativo de hover */
-    --light-bg-1: #d0ebd0;         /* Fundo verde clarinho (Mais escurinho e nítido que o anterior) */
-    --light-bg-2: #c2ecc2;         /* Fundo verde alternado um pouco mais pigmentado */
-    --text-dark: #0b5125;          /* Títulos em verde escuro */
-    --text-body: #202731;          /* Cor escura estável para os textos gerais */
+    --primary-green: #0b5125;      
+    --neon-green: #39ff14;         
+    --light-bg-1: #b3ebb3;         
+    --light-bg-2: #c2ecc2;         
+    --text-dark: #0b5125;          
+    --text-body: #202731;          
     --card-shadow: 0 4px 14px rgba(11, 81, 37, 0.1);
     --hover-shadow: 0 10px 25px rgba(57, 255, 20, 0.45);
 }
@@ -32,7 +32,6 @@ body {
     padding: 75px 0;
 }
 
-/* ALTERNÂNCIA DOS FUNDOS ESCURECIDOS */
 .bgcolor {
     background-color: var(--light-bg-2);
 }
@@ -143,7 +142,7 @@ nav ul li a:hover {
     font-weight: 600;
 }
 
-/* 🟢 BOTÃO PRINCIPAL COM HOVER VERDE NEON SUPER VISÍVEL */
+/* 🟢 HOVER VERDE NEON */
 .btn-principal {
     display: inline-block;
     background-color: var(--primary-green);
@@ -159,13 +158,12 @@ nav ul li a:hover {
 }
 
 .btn-principal:hover {
-    background-color: var(--neon-green); /* Verde Neon */
-    color: #000000;                      /* Letra preta para contraste extremo */
-    transform: scale(1.06);              /* Pequeno salto visual */
-    box-shadow: var(--hover-shadow);     /* Brilho externo neon */
+    background-color: var(--neon-green); 
+    color: #000000;                      
+    transform: scale(1.06);              
+    box-shadow: var(--hover-shadow);     
 }
 
-/* BADGES */
 .hero-badges {
     display: flex;
     justify-content: center;
@@ -183,10 +181,6 @@ nav ul li a:hover {
     display: flex;
     align-items: center;
     gap: 10px;
-}
-
-.badge-item span {
-    font-size: 1.3rem;
 }
 
 .badge-item p {
@@ -237,7 +231,7 @@ nav ul li a:hover {
     line-height: 1.45;
 }
 
-/* ENTRADAS DE FORMULÁRIOS */
+/* FORMULÁRIOS */
 input[type="text"], input[type="number"], select {
     width: 100%;
     padding: 14px;
@@ -249,7 +243,6 @@ input[type="text"], input[type="number"], select {
     color: #000;
 }
 
-/* 🟢 BOTÕES DE FUNÇÕES (PESQUISAR, CALCULAR) COM HOVER VERDE NEON */
 .btn-funcoes {
     background-color: var(--primary-green);
     color: white;
@@ -263,9 +256,9 @@ input[type="text"], input[type="number"], select {
 }
 
 .btn-funcoes:hover {
-    background-color: var(--neon-green); /* Verde Neon */
-    color: #000000;                      /* Texto preto */
-    box-shadow: var(--hover-shadow);     /* Iluminação Neon */
+    background-color: var(--neon-green); 
+    color: #000000;                      
+    box-shadow: var(--hover-shadow);     
     transform: translateY(-2px);
 }
 
@@ -328,15 +321,6 @@ input[type="text"], input[type="number"], select {
     box-shadow: var(--card-shadow);
 }
 
-.calc-placeholder {
-    font-style: italic;
-    color: #e2f0e2;
-}
-
-.metric {
-    margin-bottom: 15px;
-}
-
 .metric .number {
     display: block;
     font-size: 2.3rem;
@@ -344,7 +328,7 @@ input[type="text"], input[type="number"], select {
     color: #a3e635;
 }
 
-/* PONTOS DE COLETA E MAPA CORRIGIDO */
+/* 📍 DESIGN DO MAPA SEGURO DO AGRINHO */
 .ponto-card {
     background: #ffffff;
     padding: 18px;
@@ -355,32 +339,56 @@ input[type="text"], input[type="number"], select {
 }
 
 .mapa-simulado {
-    background: #e2e8f0;
+    background: linear-gradient(135deg, #1b5e20, #0b5125);
     border-radius: 14px;
-    overflow: hidden;
     height: 350px;
     box-shadow: var(--card-shadow);
     border: 1px solid #a2caa2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 20px;
 }
 
-.mapa-simulado iframe {
-    width: 100%;
-    height: 100%;
-    border: 0;
+.mapa-interativo-container {
+    text-align: center;
 }
 
+.mapa-interativo-container h4 {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+}
+
+.btn-mapa-externo {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: var(--neon-green);
+    color: #000;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: transform 0.2s;
+}
+
+.btn-mapa-externo:hover {
+    transform: scale(1.05);
+}
+
+/* 📊 WRAPPERS DA CORREÇÃO DOS GRÁFICOS */
 .chart-container {
     background: #ffffff;
-    padding: 22px;
+    padding: 25px;
     border-radius: 14px;
     box-shadow: var(--card-shadow);
     border: 1px solid #b3d9b3;
 }
 
-.chart-container h4 {
-    margin-bottom: 15px;
-    text-align: center;
-    color: var(--text-dark);
+.canvas-wrapper {
+    position: relative;
+    width: 100%;
+    height: 320px; /* Trava uma altura real fixa para o gráfico rodar */
 }
 
 /* CITAÇÃO */
@@ -416,7 +424,7 @@ footer {
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 1fr 0.8fr 1.2fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 35px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     padding-bottom: 35px;
@@ -439,7 +447,6 @@ footer {
 .footer-links li a {
     color: #cbd5e1;
     text-decoration: none;
-    transition: color 0.2s;
 }
 
 .footer-links li a:hover {
@@ -459,14 +466,7 @@ footer {
     display: none !important;
 }
 
-/* RESPONSIVIDADE COMPLETA */
-@media(max-width: 992px) {
-    .footer-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 25px;
-    }
-}
-
+/* RESPONSIVIDADE */
 @media(max-width: 768px) {
     .hero-text h2 { font-size: 2.3rem; }
     .footer-grid, .grid-2col { grid-template-columns: 1fr; }
@@ -474,5 +474,4 @@ footer {
     nav ul { flex-wrap: wrap; justify-content: center; gap: 12px; }
     .grid-resultado { grid-template-columns: 1fr; }
     .search-box { flex-direction: column; gap: 10px; }
-    .section-title h2 { font-size: 1.8rem; }
 }
