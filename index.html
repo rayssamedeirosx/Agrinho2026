@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Colheita do Futuro - Agrinho 2026</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Biblioteca para os Gráficos Dinâmicos -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
-    <!-- CABEÇALHO -->
     <header>
         <div class="container header-container">
             <div class="logo">
@@ -32,7 +30,6 @@
         </div>
     </header>
 
-    <!-- 🏠 SEÇÃO INICIAL (DESIGN LIMPO SEM IMAGEM) -->
     <section id="inicio" class="hero-section">
         <div class="container hero-centralizado">
             <div class="hero-text">
@@ -41,7 +38,6 @@
                 <a href="#consulta" class="btn-principal">🔍 Consultar Resíduos</a>
             </div>
             
-            <!-- Badges visuais modernas para preencher o espaço -->
             <div class="hero-badges">
                 <div class="badge-item">
                     <span>🌱</span>
@@ -59,7 +55,6 @@
         </div>
     </section>
 
-    <!-- 🔍 SEÇÃO DE CARDS RESUMO DAS FERRAMENTAS -->
     <section class="section-padding bgcolor">
         <div class="container">
             <div class="grid-ferramentas">
@@ -87,7 +82,6 @@
         </div>
     </section>
 
-    <!-- 🔍 CONSULTA INTELIGENTE DE RESÍDUOS -->
     <section id="consulta" class="section-padding">
         <div class="container">
             <div class="section-title">
@@ -97,7 +91,7 @@
             
             <div class="search-box">
                 <input type="text" id="inputBusca" placeholder="Ex: óleo, pilhas, pneus, embalagens agrícolas, plástico...">
-                <button onclick="buscarResiduo()">Pesquisar</button>
+                <button type="button" class="btn-busca" onclick="buscarResiduo()">Pesquisar</button>
             </div>
 
             <div id="resultadoBusca" class="result-card hidden">
@@ -112,7 +106,6 @@
         </div>
     </section>
 
-    <!-- 📊 CALCULADORA DE IMPACTO AMBIENTAL -->
     <section id="calculadora" class="section-padding bgcolor">
         <div class="container">
             <div class="section-title">
@@ -136,7 +129,7 @@
                         <label for="quantidadeMaterial">Quantidade:</label>
                         <input type="number" id="quantidadeMaterial" min="1" value="1">
                     </div>
-                    <button class="btn-block" onclick="calcularImpacto()">Calcular Impacto</button>
+                    <button type="button" class="btn-block btn-calculadora" onclick="calcularImpacto()">Calcular Impacto</button>
                 </div>
 
                 <div class="resultado-calculadora" id="resultadoCalc">
@@ -145,14 +138,13 @@
                     <div id="dadosCalc" class="hidden">
                         <div class="metric"><span class="number" id="calcResiduos">0</span> <span class="label">Desviados do meio ambiente</span></div>
                         <div class="metric"><span class="number" id="calcTempo">0</span> <span class="label">Anos de decomposição acumulada evitados</span></div>
-                        <div class="metric"><span class="number" id="calcBeneficio">0</span> <span class="label">Efeito ou benefício estimado</span></div>
+                        <div class="metric"><span class="number" id="calcBeneficio">0</span> <span class="label">Efeito ou benefício estimado (aproximadamente)</span></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 📍 MAPA DE PONTOS DE COLETA -->
     <section id="pontos" class="section-padding">
         <div class="container">
             <div class="section-title">
@@ -178,15 +170,13 @@
                         <p><strong>Recebe:</strong> Embalagens rígidas com tríplice lavagem.</p>
                     </div>
                 </div>
-                <!-- MAPA REAL INCORPORADO DO GOOGLE MAPS -->
                 <div class="mapa-simulado">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3661.1373516541575!2d-51.9284241!3d-23.4194098!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ebd1098df1211b%3A0xe2be5cf561073809!2sMaring%C3%A1%20-%20PR!5e0!3m2!1spt-BR!2sbr!4v1717880000000!5m2!1spt-BR!2sbr" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="http://googleusercontent.com/maps.google.com/4" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 📈 PAINEL DE ESTATÍSTICAS -->
     <section id="estatisticas" class="section-padding bgcolor">
         <div class="container">
             <div class="section-title">
@@ -207,7 +197,6 @@
         </div>
     </section>
 
-    <!-- 💬 CITAÇÃO DE IMPACTO SHIVA -->
     <section class="citacao-section">
         <div class="container text-center">
             <p class="frase-citacao">"A agricultura sustentável não se trata apenas de cultivar alimentos, trata-se de cuidar do solo, da água, do ar e de todos os seres vivos que dependem deles."</p>
@@ -215,7 +204,6 @@
         </div>
     </section>
 
-    <!-- RODAPÉ -->
     <footer>
         <div class="container footer-grid">
             <div>
@@ -238,12 +226,13 @@
             <div>
                 <h4>Contato</h4>
                 <p>📩 rayssa.barbosa.medeiros@escola.pr.gov.br</p>
-            
+                <div class="redes-sociais">
+                    <span>📸 Instagram</span>   <span>👥 Facebook</span>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Colheita do Futuro. Todos os direitos reservados.</p>
+            <p>© 2026 Colheita do Futuro. Todos os direitos reservados.</p>
             <p>Agrinho 2026</p>
         </div>
     </footer>

@@ -1,4 +1,6 @@
-// Base de dados para a consulta inteligente
+// ==========================================
+// 1. BASE DE DADOS PARA A CONSULTA INTELIGENTE
+// ==========================================
 const baseResiduos = {
     "oleo": {
         nome: "Óleo de Cozinha e Lubrificantes",
@@ -31,13 +33,15 @@ const baseResiduos = {
     "plastico": {
         nome: "Plásticos Gerais / Lonas de Silagem",
         riscos: "Fragmentação em microplásticos que asfixiam animais e poluem permanentemente as camadas aráveis do solo.",
-        descarte: "Limpar detritos orgânicos excessivos, compactar e encaminhar para a coleta seletiva.",
+        descarte: "Limpar os resíduos orgânicos excessivos, compactar e encaminhar para a coleta seletiva.",
         reciclagem: "Altamente reciclável.",
         tempo: "Aproximadamente 450 anos."
     }
 };
 
-// 1. Lógica da Busca
+// ==========================================
+// 2. AÇÃO FUNCIONAL DA BUSCA
+// ==========================================
 function buscarResiduo() {
     const termo = document.getElementById('inputBusca').value.toLowerCase().trim();
     const resultadoDiv = document.getElementById('resultadoBusca');
@@ -63,7 +67,9 @@ function buscarResiduo() {
     }
 }
 
-// 2. Lógica da Calculadora
+// ==========================================
+// 3. AÇÃO FUNCIONAL DA CALCULADORA (COM "APROXIMADAMENTE")
+// ==========================================
 function calcularImpacto() {
     const material = document.getElementById('tipoMaterial').value;
     const qtd = parseFloat(document.getElementById('quantidadeMaterial').value);
@@ -81,71 +87,44 @@ function calcularImpacto() {
         case "oleo":
             desvio = `${qtd} Litros de óleo coletados`;
             tempoEvitado = qtd * 20;
-            beneficio = `Evitou a contaminação direta de até ${qtd * 1000000} litros de água límpida!`;
+            beneficio = `Evitou a contaminação de aproximadamente ${qtd * 1000000} litros de água límpida!`;
             break;
         case "pilhas":
             desvio = `${qtd} Unidades de pilhas retidas`;
             tempoEvitado = qtd * 450;
-            beneficio = `Impediu o vazamento de metais pesados na horta e lençóis freáticos locais.`;
+            beneficio = `Impediu o vazamento de metais pesados em aproximadamente ${qtd} pontos do lençol freático.`;
             break;
         case "pneus":
             desvio = `${qtd} Pneus reciclados`;
             tempoEvitado = qtd * 400;
-            beneficio = `Eliminou focos críticos de reprodução do mosquito transmissor da Dengue.`;
+            beneficio = `Eliminou aproximadamente ${qtd} focos críticos de reprodução do mosquito da Dengue.`;
             break;
         case "embalagens":
             desvio = `${qtd} Embalagens com tríplice lavagem concluída`;
             tempoEvitado = qtd * 450;
-            beneficio = `Garantia de segurança ambiental e cumprimento correto das diretrizes do agronegócio.`;
+            beneficio = `Garantia de segurança em conformidade com as diretrizes do agronegócio sustentável.`;
             break;
         case "plastico":
             desvio = `${qtd} Kg de plástico descartado corretamente`;
             tempoEvitado = qtd * 450;
-            beneficio = `Impediu o acúmulo de resíduos indestrutíveis nas áreas de plantio da propriedade.`;
+            beneficio = `Evitou o acúmulo de fragmentos plásticos em aproximadamente ${qtd * 2} metros quadrados de solo.`;
             break;
     }
 
+    // Mostra os resultados na tela tirando a classe 'hidden'
     document.querySelector('.calc-placeholder').classList.add('hidden');
     document.getElementById('dadosCalc').classList.remove('hidden');
+    
     document.getElementById('calcResiduos').innerText = desvio;
-    document.getElementById('calcTempo').innerText = `~ ${tempoEvitado}`;
+    document.getElementById('calcTempo').innerText = `${tempoEvitado} anos`;
     document.getElementById('calcBeneficio').innerText = beneficio;
 }
 
-// 3. Lógica do Índice de Sustentabilidade
-function calcularIndice() {
-    const q1 = document.querySelector('input[name="q1"]:checked');
-    const q2 = document.querySelector('input[name="q2"]:checked');
-    const q3 = document.querySelector('input[name="q3"]:checked');
-
-    if (!q1 || !q2 || !q3) {
-        alert("Responda todas as perguntas para ver o diagnóstico!");
-        return;
-    }
-
-    const total = parseInt(q1.value) + parseInt(q2.value) + parseInt(q3.value);
-    const resultadoDiv = document.getElementById('resultadoQuiz');
-    resultadoDiv.classList.remove('hidden');
-    document.getElementById('scoreQuiz').innerText = total;
-
-    const feedback = document.getElementById('feedbackQuiz');
-    const sugestoes = document.getElementById('sugestoesQuiz');
-    sugestoes.innerHTML = "<strong>💡 Recomendações práticas:</strong>";
-
-    if (total === 30) {
-        feedback.innerText = "🏆 Excelente! Suas práticas rurais servem de exemplo de sustentabilidade.";
-        sugestoes.innerHTML += "<p>• Continue compartilhando esse conhecimento com produtores parceiros na sua região.</p>";
-    } else if (total >= 10) {
-        feedback.innerText = "⚠️ Regular/Alerta: Você já faz coisas boas, mas ainda há falhas críticas pendentes.";
-        sugestoes.innerHTML += "<p>• Corrija as respostas onde assinalou a destinação errada e busque o posto de recebimento mais próximo.</p>";
-    } else {
-        feedback.innerText = "❌ Crítico: Atenção urgente! Práticas nocivas detectadas na propriedade.";
-        sugestoes.innerHTML += "<p>• Interrompa imediatamente a queima ou enterro de químicos e organize um ponto de descarte seguro.</p>";
-    }
-}
-
-// 4. Configuração dos Gráficos Dinâmicos
+// ==========================================
+// 4. CONFIGURAÇÃO DOS GRÁFICOS DINÂMICOS
+// ==========================================
 window.addEventListener('DOMContentLoaded', () => {
+    // Gráfico de Decomposição
     const ctxDecomp = document.getElementById('chartDecomposicao').getContext('2d');
     new Chart(ctxDecomp, {
         type: 'bar',
@@ -154,12 +133,16 @@ window.addEventListener('DOMContentLoaded', () => {
             datasets: [{
                 label: 'Tempo Médio de Decomposição (Anos)',
                 data: [20, 400, 450, 450, 500],
-                backgroundColor: ['#f57c00', '#2e7d32', '#4caf50', '#1b5e20', '#d32f2f']
+                backgroundColor: ['#f57c00', '#0b5125', '#148f43', '#07401c', '#d32f2f']
             }]
         },
-        options: { responsive: true }
+        options: { 
+            responsive: true,
+            maintainAspectRatio: false
+        }
     });
 
+    // Gráfico de Resíduos Mais Buscados
     const ctxBuscados = document.getElementById('chartMaisBuscados').getContext('2d');
     new Chart(ctxBuscados, {
         type: 'doughnut',
@@ -167,9 +150,12 @@ window.addEventListener('DOMContentLoaded', () => {
             labels: ['Embalagens', 'Óleos', 'Pilhas', 'Pneus', 'Outros'],
             datasets: [{
                 data: [42, 23, 17, 13, 5],
-                backgroundColor: ['#2e7d32', '#4caf50', '#f57c00', '#81c784', '#757575']
+                backgroundColor: ['#0b5125', '#148f43', '#f57c00', '#81c784', '#757575']
             }]
         },
-        options: { responsive: true }
+        options: { 
+            responsive: true,
+            maintainAspectRatio: false
+        }
     });
 });

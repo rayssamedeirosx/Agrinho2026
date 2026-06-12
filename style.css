@@ -1,10 +1,12 @@
 :root {
-    --primary-green: #0b5125;   /* Verde escuro oficial do cabeçalho e rodapé */
-    --accent-green: #07401c;    /* Tom escuro para estados de hover */
-    --card-bg: #f4f9f1;         /* Fundo suave esverdeado/bege dos cards principais */
-    --text-dark: #0b5125;       /* Títulos destacados em verde escuro */
-    --text-body: #333333;       /* Cor do texto comum */
-    --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    --primary-green: #0b5125;      /* Verde escuro corporativo (Cabeçalho/Rodapé) */
+    --accent-green: #148f43;       /* Verde bem vivo para o efeito de passar o mouse (Hover) */
+    --light-bg-1: #eef7ee;         /* Fundo verde bem clarinho principal */
+    --light-bg-2: #e4f2e4;         /* Fundo verde um pouquinho mais pigmentado (Seções alternadas) */
+    --text-dark: #0b5125;          /* Títulos em verde escuro */
+    --text-body: #2d3748;          /* Cor do texto de leitura */
+    --card-shadow: 0 4px 12px rgba(11, 81, 37, 0.06);
+    --hover-shadow: 0 10px 25px rgba(11, 81, 37, 0.2);
 }
 
 * {
@@ -15,7 +17,7 @@
 }
 
 body {
-    background-color: #ffffff;
+    background-color: var(--light-bg-1);
     color: var(--text-body);
     line-height: 1.6;
 }
@@ -27,11 +29,11 @@ body {
 }
 
 .section-padding {
-    padding: 60px 0;
+    padding: 70px 0;
 }
 
 .bgcolor {
-    background-color: var(--card-bg);
+    background-color: var(--light-bg-2);
 }
 
 .text-center {
@@ -40,13 +42,13 @@ body {
 
 .section-title {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 45px;
 }
 
 .section-title h2 {
     color: var(--text-dark);
-    font-size: 2.2rem;
-    margin-bottom: 10px;
+    font-size: 2.3rem;
+    margin-bottom: 12px;
     font-weight: 700;
 }
 
@@ -58,7 +60,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 3px 15px rgba(0,0,0,0.15);
 }
 
 .header-container {
@@ -70,11 +72,11 @@ header {
 .logo {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 14px;
 }
 
 #logo-img {
-    height: 50px;
+    height: 52px;
     width: auto;
 }
 
@@ -86,31 +88,34 @@ header {
 
 .logo-texto p {
     font-size: 0.8rem;
-    color: #cbd5e1;
+    color: #a3e635;
 }
 
 nav ul {
     display: flex;
     list-style: none;
-    gap: 20px;
+    gap: 22px;
 }
 
 nav ul li a {
     text-decoration: none;
     color: white;
     font-size: 0.95rem;
-    font-weight: 500;
-    transition: opacity 0.2s;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: background 0.2s ease, color 0.2s ease;
 }
 
 nav ul li a:hover {
-    opacity: 0.8;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
 }
 
-/* 🌾 SEÇÃO HERO CENTRALIZADA */
+/* 🌾 SEÇÃO HERO */
 .hero-section {
-    padding: 90px 0 70px 0;
-    background: linear-gradient(180deg, #f4f9f1 0%, #ffffff 100%);
+    padding: 100px 0 80px 0;
+    background: linear-gradient(180deg, var(--light-bg-2) 0%, var(--light-bg-1) 100%);
     text-align: center;
 }
 
@@ -124,53 +129,53 @@ nav ul li a:hover {
 }
 
 .hero-text h2 {
-    font-size: 3.2rem;
+    font-size: 3.3rem;
     color: var(--text-dark);
     font-weight: 800;
-    line-height: 1.15;
+    line-height: 1.2;
 }
 
 .hero-text p {
-    font-size: 1.3rem;
-    color: #444;
+    font-size: 1.35rem;
+    color: #3b4a3f;
     margin-top: 15px;
     font-weight: 500;
 }
 
-/* Botão de Ação */
+/* 🔴 BOTÕES COM EFEITO HOVER VISÍVEL */
 .btn-principal {
     display: inline-block;
     background-color: var(--primary-green);
     color: white;
-    padding: 15px 35px;
+    padding: 16px 40px;
     border-radius: 30px;
     text-decoration: none;
     font-weight: bold;
-    font-size: 1.1rem;
-    box-shadow: 0 4px 15px rgba(11, 81, 37, 0.2);
+    font-size: 1.15rem;
+    box-shadow: 0 4px 15px rgba(11, 81, 37, 0.25);
     margin-top: 25px;
-    transition: transform 0.2s, background 0.2s;
+    transition: background-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
 }
 
 .btn-principal:hover {
     background-color: var(--accent-green);
-    transform: translateY(-2px);
+    transform: scale(1.04);
+    box-shadow: var(--hover-shadow);
 }
 
-/* Badges flutuantes */
 .hero-badges {
     display: flex;
     justify-content: center;
     gap: 25px;
     flex-wrap: wrap;
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 .badge-item {
     background-color: #ffffff;
-    padding: 12px 25px;
+    padding: 12px 28px;
     border-radius: 50px;
-    border: 1px solid #e1ebe0;
+    border: 1px solid #cbdccb;
     box-shadow: var(--card-shadow);
     display: flex;
     align-items: center;
@@ -182,7 +187,7 @@ nav ul li a:hover {
 }
 
 .badge-item p {
-    font-weight: 600;
+    font-weight: 700;
     color: var(--primary-green);
     font-size: 0.95rem;
     margin: 0;
@@ -191,67 +196,76 @@ nav ul li a:hover {
 /* 📦 CARDS RESUMO */
 .grid-ferramentas {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
 }
 
 .card-ferramenta {
     background-color: #ffffff;
     border-radius: 18px;
-    padding: 30px 15px;
+    padding: 35px 20px;
     text-align: center;
-    border: 1px solid #e2e8f0;
+    border: 1px solid #d2ecd2;
     box-shadow: var(--card-shadow);
-    transition: transform 0.2s;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .card-ferramenta:hover {
-    transform: translateY(-4px);
+    transform: translateY(-6px);
+    box-shadow: var(--hover-shadow);
+    border-color: var(--accent-green);
 }
 
 .icon-box {
-    font-size: 2.3rem;
+    font-size: 2.5rem;
     color: var(--primary-green);
     margin-bottom: 12px;
 }
 
 .card-ferramenta h3 {
     color: var(--text-dark);
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     margin-bottom: 8px;
 }
 
 .card-ferramenta p {
-    font-size: 0.85rem;
-    color: #555;
-    line-height: 1.4;
+    font-size: 0.9rem;
+    color: #4a5568;
+    line-height: 1.45;
 }
 
-/* 🛠️ CONFIGURAÇÕES DE FORMULÁRIOS INTERATIVOS */
+/* INPUTS E FORMULÁRIOS */
 input[type="text"], input[type="number"], select {
     width: 100%;
-    padding: 12px;
+    padding: 14px;
     margin-bottom: 15px;
-    border: 1px solid #cbd5e1;
+    border: 1px solid #b7d2b7;
     border-radius: 8px;
     font-size: 1rem;
     background-color: #fff;
+    transition: border-color 0.2s;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--primary-green);
 }
 
 button {
     background-color: var(--primary-green);
     color: white;
-    padding: 12px 25px;
+    padding: 14px 28px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
     font-size: 1rem;
-    transition: background 0.2s;
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 button:hover {
     background-color: var(--accent-green);
+    box-shadow: 0 5px 12px rgba(20, 143, 67, 0.3);
 }
 
 .btn-block {
@@ -260,16 +274,16 @@ button:hover {
 
 .grid-2col {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 35px;
 }
 
 /* BOX DE BUSCA */
 .search-box {
     display: flex;
-    gap: 10px;
-    max-width: 600px;
-    margin: 0 auto 30px auto;
+    gap: 12px;
+    max-width: 650px;
+    margin: 0 auto 35px auto;
 }
 
 .search-box input {
@@ -277,11 +291,11 @@ button:hover {
 }
 
 .result-card {
-    background: var(--card-bg);
-    padding: 25px;
+    background: #ffffff;
+    padding: 28px;
     border-radius: 12px;
     box-shadow: var(--card-shadow);
-    border-left: 5px solid var(--primary-green);
+    border-left: 6px solid var(--primary-green);
     max-width: 800px;
     margin: 0 auto;
 }
@@ -293,28 +307,29 @@ button:hover {
     margin-top: 15px;
 }
 
-/* CARDS INTERNOS DE TRABALHO */
+/* CARDS INTERNOS */
 .card-branco {
-    background: white;
-    padding: 30px;
+    background: #ffffff;
+    padding: 35px;
     border-radius: 14px;
     box-shadow: var(--card-shadow);
-    border: 1px solid #e2e8f0;
+    border: 1px solid #d2ecd2;
 }
 
 .resultado-calculadora {
     background: var(--primary-green);
     color: white;
-    padding: 30px;
+    padding: 35px;
     border-radius: 14px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    box-shadow: var(--card-shadow);
 }
 
 .calc-placeholder {
     font-style: italic;
-    color: #e2e8f0;
+    color: #e2f0e2;
 }
 
 .metric {
@@ -323,19 +338,24 @@ button:hover {
 
 .metric .number {
     display: block;
-    font-size: 2.2rem;
+    font-size: 2.3rem;
     font-weight: bold;
-    color: #a5d6a7;
+    color: #a3e635;
 }
 
-/* PONTOS DE COLETA E GRÁFICOS */
+/* PONTOS DE COLETA E MAPA */
 .ponto-card {
-    background: white;
-    padding: 15px;
-    border-radius: 8px;
+    background: #ffffff;
+    padding: 18px;
+    border-radius: 10px;
     margin-bottom: 15px;
     box-shadow: var(--card-shadow);
-    border-left: 4px solid var(--primary-green);
+    border-left: 5px solid var(--primary-green);
+    transition: transform 0.2s ease;
+}
+
+.ponto-card:hover {
+    transform: scale(1.02);
 }
 
 .mapa-simulado {
@@ -344,14 +364,15 @@ button:hover {
     overflow: hidden;
     height: 350px;
     box-shadow: var(--card-shadow);
+    border: 1px solid #b7d2b7;
 }
 
 .chart-container {
-    background: white;
-    padding: 20px;
+    background: #ffffff;
+    padding: 22px;
     border-radius: 14px;
     box-shadow: var(--card-shadow);
-    border: 1px solid #e2e8f0;
+    border: 1px solid #d2ecd2;
 }
 
 .chart-container h4 {
@@ -360,41 +381,41 @@ button:hover {
     color: var(--text-dark);
 }
 
-/* CITAÇÃO DE IMPACTO */
+/* CITAÇÃO */
 .citacao-section {
-    padding: 40px 0;
-    background-color: #ffffff;
-    border-top: 1px dashed #cbd5e1;
-    border-bottom: 1px dashed #cbd5e1;
+    padding: 45px 0;
+    background-color: var(--light-bg-1);
+    border-top: 1px dashed #b7d2b7;
+    border-bottom: 1px dashed #b7d2b7;
 }
 
 .frase-citacao {
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     font-style: italic;
     color: var(--text-dark);
     font-weight: 600;
     max-width: 850px;
-    margin: 0 auto 10px auto;
+    margin: 0 auto 12px auto;
 }
 
 .autor-citacao {
-    font-size: 0.9rem;
-    color: #555;
+    font-size: 0.95rem;
+    color: #4a5568;
     font-weight: 700;
 }
 
-/* 🛑 RODAPÉ */
+/* RODAPÉ */
 footer {
     background-color: var(--primary-green);
-    color: #f8fafc;
-    padding: 50px 0 20px 0;
+    color: #f1f5f9;
+    padding: 55px 0 25px 0;
     font-size: 0.9rem;
 }
 
 .footer-grid {
     display: grid;
     grid-template-columns: 1fr 0.8fr 1.2fr 1fr;
-    gap: 30px;
+    gap: 35px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     padding-bottom: 35px;
 }
@@ -420,14 +441,14 @@ footer {
 }
 
 .footer-links li a:hover {
-    color: white;
+    color: #a3e635;
 }
 
 .footer-bottom {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 20px;
+    padding-top: 22px;
     color: #94a3b8;
     font-size: 0.85rem;
 }
@@ -436,11 +457,39 @@ footer {
     display: none !important;
 }
 
-/* RESPONSIVIDADE */
+/* REGRAS DE COMPLETA RESPONSIVIDADE */
+@media(max-width: 992px) {
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+    }
+}
+
 @media(max-width: 768px) {
-    .hero-text h2 { font-size: 2.2rem; }
-    .footer-grid, .grid-2col { grid-template-columns: 1fr; }
-    .header-container, .footer-bottom { flex-direction: column; gap: 15px; text-align: center; }
-    nav ul { flex-wrap: wrap; justify-content: center; }
-    .grid-resultado { grid-template-columns: 1fr; }
+    .hero-text h2 { 
+        font-size: 2.3rem; 
+    }
+    .footer-grid, .grid-2col { 
+        grid-template-columns: 1fr; 
+    }
+    .header-container, .footer-bottom { 
+        flex-direction: column; 
+        gap: 18px; 
+        text-align: center; 
+    }
+    nav ul { 
+        flex-wrap: wrap; 
+        justify-content: center; 
+        gap: 12px;
+    }
+    .grid-resultado { 
+        grid-template-columns: 1fr; 
+    }
+    .search-box {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .section-title h2 {
+        font-size: 1.8rem;
+    }
 }
