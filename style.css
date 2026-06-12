@@ -1,10 +1,10 @@
 :root {
-    --primary-green: #0b5125;      
-    --neon-green: #39ff14;         
-    --light-bg-1: #b3ebb3;         
-    --light-bg-2: #c2ecc2;         
-    --text-dark: #0b5125;          
-    --text-body: #202731;          
+    --primary-green: #0b5125;      /* Verde escuro corporativo (Cabeçalho/Rodapé) */
+    --neon-green: #39ff14;         /* VERDE NEON para o efeito ativo de hover */
+    --light-bg-1: #d0ebd0;         /* Fundo verde clarinho (Mais escurinho e nítido) */
+    --light-bg-2: #c2ecc2;         /* Fundo verde alternado um pouco mais pigmentado */
+    --text-dark: #0b5125;          /* Títulos em verde escuro */
+    --text-body: #202731;          /* Cor escura estável para os textos gerais */
     --card-shadow: 0 4px 14px rgba(11, 81, 37, 0.1);
     --hover-shadow: 0 10px 25px rgba(57, 255, 20, 0.45);
 }
@@ -142,7 +142,6 @@ nav ul li a:hover {
     font-weight: 600;
 }
 
-/* 🟢 HOVER VERDE NEON */
 .btn-principal {
     display: inline-block;
     background-color: var(--primary-green);
@@ -328,7 +327,7 @@ input[type="text"], input[type="number"], select {
     color: #a3e635;
 }
 
-/* 📍 DESIGN DO MAPA SEGURO DO AGRINHO */
+/* MAPA DO AGRINHO */
 .ponto-card {
     background: #ffffff;
     padding: 18px;
@@ -376,7 +375,7 @@ input[type="text"], input[type="number"], select {
     transform: scale(1.05);
 }
 
-/* 📊 WRAPPERS DA CORREÇÃO DOS GRÁFICOS */
+/* GRÁFICOS */
 .chart-container {
     background: #ffffff;
     padding: 25px;
@@ -388,7 +387,7 @@ input[type="text"], input[type="number"], select {
 .canvas-wrapper {
     position: relative;
     width: 100%;
-    height: 320px; /* Trava uma altura real fixa para o gráfico rodar */
+    height: 320px;
 }
 
 /* CITAÇÃO */
