@@ -1,12 +1,12 @@
 :root {
     --primary-green: #0b5125;      /* Verde escuro corporativo (Cabeçalho/Rodapé) */
-    --accent-green: #148f43;       /* Verde bem vivo para o efeito de passar o mouse (Hover) */
-    --light-bg-1: #eef7ee;         /* Fundo verde bem clarinho principal */
-    --light-bg-2: #e4f2e4;         /* Fundo verde um pouquinho mais pigmentado (Seções alternadas) */
+    --neon-green: #39ff14;         /* VERDE NEON para o efeito ativo de hover */
+    --light-bg-1: #d0ebd0;         /* Fundo verde clarinho (Mais escurinho e nítido que o anterior) */
+    --light-bg-2: #c2ecc2;         /* Fundo verde alternado um pouco mais pigmentado */
     --text-dark: #0b5125;          /* Títulos em verde escuro */
-    --text-body: #2d3748;          /* Cor do texto de leitura */
-    --card-shadow: 0 4px 12px rgba(11, 81, 37, 0.06);
-    --hover-shadow: 0 10px 25px rgba(11, 81, 37, 0.2);
+    --text-body: #202731;          /* Cor escura estável para os textos gerais */
+    --card-shadow: 0 4px 14px rgba(11, 81, 37, 0.1);
+    --hover-shadow: 0 10px 25px rgba(57, 255, 20, 0.45);
 }
 
 * {
@@ -29,9 +29,10 @@ body {
 }
 
 .section-padding {
-    padding: 70px 0;
+    padding: 75px 0;
 }
 
+/* ALTERNÂNCIA DOS FUNDOS ESCURECIDOS */
 .bgcolor {
     background-color: var(--light-bg-2);
 }
@@ -52,7 +53,7 @@ body {
     font-weight: 700;
 }
 
-/* 🟢 CABEÇALHO */
+/* CABEÇALHO */
 header {
     background-color: var(--primary-green);
     color: white;
@@ -108,11 +109,11 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-    color: #ffffff;
+    background-color: var(--neon-green);
+    color: #000000;
 }
 
-/* 🌾 SEÇÃO HERO */
+/* SEÇÃO HERO */
 .hero-section {
     padding: 100px 0 80px 0;
     background: linear-gradient(180deg, var(--light-bg-2) 0%, var(--light-bg-1) 100%);
@@ -137,12 +138,12 @@ nav ul li a:hover {
 
 .hero-text p {
     font-size: 1.35rem;
-    color: #3b4a3f;
+    color: #2b3a2f;
     margin-top: 15px;
-    font-weight: 500;
+    font-weight: 600;
 }
 
-/* 🔴 BOTÕES COM EFEITO HOVER VISÍVEL */
+/* 🟢 BOTÃO PRINCIPAL COM HOVER VERDE NEON SUPER VISÍVEL */
 .btn-principal {
     display: inline-block;
     background-color: var(--primary-green);
@@ -154,15 +155,17 @@ nav ul li a:hover {
     font-size: 1.15rem;
     box-shadow: 0 4px 15px rgba(11, 81, 37, 0.25);
     margin-top: 25px;
-    transition: background-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
 }
 
 .btn-principal:hover {
-    background-color: var(--accent-green);
-    transform: scale(1.04);
-    box-shadow: var(--hover-shadow);
+    background-color: var(--neon-green); /* Verde Neon */
+    color: #000000;                      /* Letra preta para contraste extremo */
+    transform: scale(1.06);              /* Pequeno salto visual */
+    box-shadow: var(--hover-shadow);     /* Brilho externo neon */
 }
 
+/* BADGES */
 .hero-badges {
     display: flex;
     justify-content: center;
@@ -175,7 +178,7 @@ nav ul li a:hover {
     background-color: #ffffff;
     padding: 12px 28px;
     border-radius: 50px;
-    border: 1px solid #cbdccb;
+    border: 1px solid #adc2ad;
     box-shadow: var(--card-shadow);
     display: flex;
     align-items: center;
@@ -193,7 +196,7 @@ nav ul li a:hover {
     margin: 0;
 }
 
-/* 📦 CARDS RESUMO */
+/* CARDS RESUMO */
 .grid-ferramentas {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -205,15 +208,15 @@ nav ul li a:hover {
     border-radius: 18px;
     padding: 35px 20px;
     text-align: center;
-    border: 1px solid #d2ecd2;
+    border: 1px solid #b3d9b3;
     box-shadow: var(--card-shadow);
     transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .card-ferramenta:hover {
     transform: translateY(-6px);
-    box-shadow: var(--hover-shadow);
-    border-color: var(--accent-green);
+    box-shadow: 0 10px 20px rgba(11, 81, 37, 0.15);
+    border-color: var(--primary-green);
 }
 
 .icon-box {
@@ -234,24 +237,20 @@ nav ul li a:hover {
     line-height: 1.45;
 }
 
-/* INPUTS E FORMULÁRIOS */
+/* ENTRADAS DE FORMULÁRIOS */
 input[type="text"], input[type="number"], select {
     width: 100%;
     padding: 14px;
     margin-bottom: 15px;
-    border: 1px solid #b7d2b7;
+    border: 1px solid #a2caa2;
     border-radius: 8px;
     font-size: 1rem;
     background-color: #fff;
-    transition: border-color 0.2s;
+    color: #000;
 }
 
-input:focus, select:focus {
-    outline: none;
-    border-color: var(--primary-green);
-}
-
-button {
+/* 🟢 BOTÕES DE FUNÇÕES (PESQUISAR, CALCULAR) COM HOVER VERDE NEON */
+.btn-funcoes {
     background-color: var(--primary-green);
     color: white;
     padding: 14px 28px;
@@ -260,12 +259,14 @@ button {
     cursor: pointer;
     font-weight: bold;
     font-size: 1rem;
-    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease, transform 0.15s ease;
 }
 
-button:hover {
-    background-color: var(--accent-green);
-    box-shadow: 0 5px 12px rgba(20, 143, 67, 0.3);
+.btn-funcoes:hover {
+    background-color: var(--neon-green); /* Verde Neon */
+    color: #000000;                      /* Texto preto */
+    box-shadow: var(--hover-shadow);     /* Iluminação Neon */
+    transform: translateY(-2px);
 }
 
 .btn-block {
@@ -278,7 +279,7 @@ button:hover {
     gap: 35px;
 }
 
-/* BOX DE BUSCA */
+/* BUSCA */
 .search-box {
     display: flex;
     gap: 12px;
@@ -313,7 +314,7 @@ button:hover {
     padding: 35px;
     border-radius: 14px;
     box-shadow: var(--card-shadow);
-    border: 1px solid #d2ecd2;
+    border: 1px solid #b3d9b3;
 }
 
 .resultado-calculadora {
@@ -343,7 +344,7 @@ button:hover {
     color: #a3e635;
 }
 
-/* PONTOS DE COLETA E MAPA */
+/* PONTOS DE COLETA E MAPA CORRIGIDO */
 .ponto-card {
     background: #ffffff;
     padding: 18px;
@@ -351,11 +352,6 @@ button:hover {
     margin-bottom: 15px;
     box-shadow: var(--card-shadow);
     border-left: 5px solid var(--primary-green);
-    transition: transform 0.2s ease;
-}
-
-.ponto-card:hover {
-    transform: scale(1.02);
 }
 
 .mapa-simulado {
@@ -364,7 +360,13 @@ button:hover {
     overflow: hidden;
     height: 350px;
     box-shadow: var(--card-shadow);
-    border: 1px solid #b7d2b7;
+    border: 1px solid #a2caa2;
+}
+
+.mapa-simulado iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
 }
 
 .chart-container {
@@ -372,7 +374,7 @@ button:hover {
     padding: 22px;
     border-radius: 14px;
     box-shadow: var(--card-shadow);
-    border: 1px solid #d2ecd2;
+    border: 1px solid #b3d9b3;
 }
 
 .chart-container h4 {
@@ -385,8 +387,8 @@ button:hover {
 .citacao-section {
     padding: 45px 0;
     background-color: var(--light-bg-1);
-    border-top: 1px dashed #b7d2b7;
-    border-bottom: 1px dashed #b7d2b7;
+    border-top: 1px dashed #a2caa2;
+    border-bottom: 1px dashed #a2caa2;
 }
 
 .frase-citacao {
@@ -441,7 +443,7 @@ footer {
 }
 
 .footer-links li a:hover {
-    color: #a3e635;
+    color: var(--neon-green);
 }
 
 .footer-bottom {
@@ -457,7 +459,7 @@ footer {
     display: none !important;
 }
 
-/* REGRAS DE COMPLETA RESPONSIVIDADE */
+/* RESPONSIVIDADE COMPLETA */
 @media(max-width: 992px) {
     .footer-grid {
         grid-template-columns: 1fr 1fr;
@@ -466,30 +468,11 @@ footer {
 }
 
 @media(max-width: 768px) {
-    .hero-text h2 { 
-        font-size: 2.3rem; 
-    }
-    .footer-grid, .grid-2col { 
-        grid-template-columns: 1fr; 
-    }
-    .header-container, .footer-bottom { 
-        flex-direction: column; 
-        gap: 18px; 
-        text-align: center; 
-    }
-    nav ul { 
-        flex-wrap: wrap; 
-        justify-content: center; 
-        gap: 12px;
-    }
-    .grid-resultado { 
-        grid-template-columns: 1fr; 
-    }
-    .search-box {
-        flex-direction: column;
-        gap: 10px;
-    }
-    .section-title h2 {
-        font-size: 1.8rem;
-    }
+    .hero-text h2 { font-size: 2.3rem; }
+    .footer-grid, .grid-2col { grid-template-columns: 1fr; }
+    .header-container, .footer-bottom { flex-direction: column; gap: 18px; text-align: center; }
+    nav ul { flex-wrap: wrap; justify-content: center; gap: 12px; }
+    .grid-resultado { grid-template-columns: 1fr; }
+    .search-box { flex-direction: column; gap: 10px; }
+    .section-title h2 { font-size: 1.8rem; }
 }
