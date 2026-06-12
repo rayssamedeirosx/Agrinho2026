@@ -1,6 +1,6 @@
-// ==========================================
+
 // 1. BASE DE DADOS PARA A CONSULTA INTELIGENTE
-// ==========================================
+
 const baseResiduos = {
     "oleo": {
         nome: "Óleo de Cozinha e Lubrificantes",
@@ -39,9 +39,9 @@ const baseResiduos = {
     }
 };
 
-// ==========================================
+
 // 2. AÇÃO FUNCIONAL DA BUSCA
-// ==========================================
+
 function buscarResiduo() {
     const termo = document.getElementById('inputBusca').value.toLowerCase().trim();
     const resultadoDiv = document.getElementById('resultadoBusca');
@@ -67,9 +67,9 @@ function buscarResiduo() {
     }
 }
 
-// ==========================================
-// 3. AÇÃO FUNCIONAL DA CALCULADORA (COM "APROXIMADAMENTE")
-// ==========================================
+
+// 3. AÇÃO FUNCIONAL DA CALCULADORA 
+
 function calcularImpacto() {
     const material = document.getElementById('tipoMaterial').value;
     const qtd = parseFloat(document.getElementById('quantidadeMaterial').value);
@@ -111,7 +111,7 @@ function calcularImpacto() {
             break;
     }
 
-    // Mostra os resultados na tela tirando a classe 'hidden'
+    // Mostra os resultados na tela 
     document.querySelector('.calc-placeholder').classList.add('hidden');
     document.getElementById('dadosCalc').classList.remove('hidden');
     
@@ -120,9 +120,9 @@ function calcularImpacto() {
     document.getElementById('calcBeneficio').innerText = beneficio;
 }
 
-// ==========================================
+
 // 4. CONFIGURAÇÃO DOS GRÁFICOS DINÂMICOS
-// ==========================================
+
 window.addEventListener('DOMContentLoaded', () => {
     // Gráfico de Decomposição
     const ctxDecomp = document.getElementById('chartDecomposicao').getContext('2d');
