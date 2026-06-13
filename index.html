@@ -1,24 +1,37 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <!-- Configurações básicas de codificação -->
     <meta charset="UTF-8">
+    
+    <!-- Comando responsividade -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Título oficial da plataforma -->
     <title>Colheita do Futuro - Agrinho 2026</title>
+    
+    <!-- Vinculação com estilos visuais (CSS) -->
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Biblioteca externa -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
+    <!--  CABEÇALHO PRINCIPAL -->
     <header>
         <div class="container header-container">
+            <!-- Bloco da logo e Identidade do site -->
             <div class="logo">
+                <!-- Imagem da logo -->
                 <img src="logo.png" alt="Colheita do Futuro" id="logo-img">
                 <div class="logo-texto">
                     <h1>Colheita do Futuro</h1>
                     <p>Tecnologia inteligente para construir um agro forte e sustentável</p>
                 </div>
             </div>
+            
+            <!-- Menu de Links Rápidos -->
             <nav>
                 <ul>
                     <li><a href="#inicio">Início</a></li>
@@ -31,14 +44,18 @@
         </div>
     </header>
 
+    <!--  SEÇÃO INICIAL (INTRODUÇÃO) -->
     <section id="inicio" class="hero-section">
         <div class="container hero-centralizado">
+            <!-- impacto ecológico e botão de ação rápido -->
             <div class="hero-text">
                 <h2>Pequenas ações que transformam o meio ambiente!</h2>
                 <p>Descarte corretamente. Recicle. Preserve o campo. Garanta o futuro!</p>
+                <!-- Botão com efeito interativo Hover Verde Neon -->
                 <a href="#consulta" class="btn-principal">🔍 Consultar Resíduos</a>
             </div>
             
+            <!-- Badges informativas -->
             <div class="hero-badges">
                 <div class="badge-item">
                     <span>🌱</span>
@@ -56,8 +73,10 @@
         </div>
     </section>
 
+    <!--- SEÇÃO DE VISÃO GERAL -->
     <section class="section-padding bgcolor">
         <div class="container">
+            <!-- mini-cards -->
             <div class="grid-ferramentas">
                 <div class="card-ferramenta">
                     <div class="icon-box">🔍</div>
@@ -83,20 +102,26 @@
         </div>
     </section>
 
+    <!-- SEÇÃO DA CONSULTA DE RESÍDUOS -->
     <section id="consulta" class="section-padding">
         <div class="container">
+            <!-- Título e cabeçalho explicativo da seção -->
             <div class="section-title">
                 <h2>🔍 Consulta Inteligente de Resíduos</h2>
                 <p>Descubra o impacto e a forma correta de destinar cada material no meio rural.</p>
             </div>
             
+            <!-- Bloco de Entrada (Input) e Botão acionador do JavaScript -->
             <div class="search-box">
                 <input type="text" id="inputBusca" placeholder="Ex: óleo, pilhas, pneus, embalagens agrícolas, plástico...">
+                <!-- Botão com classe de função acionadora controlada pelo script.js -->
                 <button type="button" class="btn-funcoes" onclick="buscarResiduo()">Pesquisar</button>
             </div>
 
+            <!-- Card de exibição oculta (hidden) por padrão. O JavaScript o exibe ao encontrar dados -->
             <div id="resultadoBusca" class="result-card hidden">
                 <h3 id="resNome">Nome do Resíduo</h3>
+                <!-- Grid interna estrutural para organizar as saídas da base de dados -->
                 <div class="grid-resultado">
                     <div><strong>⚠️ Riscos Ambientais:</strong> <span id="resRiscos"></span></div>
                     <div><strong>✅ Descarte Correto:</strong> <span id="resDescarte"></span></div>
@@ -107,14 +132,18 @@
         </div>
     </section>
 
+    <!-- SEÇÃO DA CALCULADORA DE IMPACTO AMBIENTAL -->
     <section id="calculadora" class="section-padding bgcolor">
         <div class="container">
+            <!-- Título e cabeçalho da calculadora ecológica -->
             <div class="section-title">
                 <h2>📊 Calculadora de Impacto Ambiental</h2>
                 <p>Simule a quantidade de materiais reciclados ou destinados corretamente e veja o benefício real.</p>
             </div>
 
+            <!-- Divisão em duas colunas: Lado esquerdo (Inputs) / Lado direito (Resultados) -->
             <div class="grid-2col">
+                <!-- Painel esquerdo: Entrada do formulário de dados -->
                 <div class="card-branco">
                     <div class="form-group">
                         <label for="tipoMaterial">Selecione o Material:</label>
@@ -130,15 +159,21 @@
                         <label for="quantidadeMaterial">Quantidade:</label>
                         <input type="number" id="quantidadeMaterial" min="1" value="1">
                     </div>
+                    <!-- Botão de submissão conectado à função calcularImpacto() do script.js -->
                     <button type="button" class="btn-block btn-funcoes" onclick="calcularImpacto()">Calcular Impacto</button>
                 </div>
 
+                <!-- Painel direito: Exibição dinâmica dos resultados calculados -->
                 <div class="resultado-calculadora" id="resultadoCalc">
                     <h3>Seu Impacto Positivo:</h3>
+                    <!-- Mensagem provisória exibida antes do cálculo acontecer -->
                     <p class="calc-placeholder">Insira os dados ao lado para calcular os benefícios ecológicos.</p>
+                    
+                    <!-- Bloco métrico numérico oculto (hidden), revelado após o clique -->
                     <div id="dadosCalc" class="hidden">
                         <div class="metric"><span class="number" id="calcResiduos">0</span> <span class="label">Desviados do meio ambiente</span></div>
                         <div class="metric"><span class="number" id="calcTempo">0</span> <span class="label">Anos de decomposição acumulada evitados</span></div>
+                        <!-- Campo de benefício parametrizado com a string "aproximadamente" -->
                         <div class="metric"><span class="number" id="calcBeneficio">0</span> <span class="label">Efeito ou benefício estimado (aproximadamente)</span></div>
                     </div>
                 </div>
@@ -146,6 +181,7 @@
         </div>
     </section>
 
+    <!-- SEÇÃO DE PONTOS DE COLETA E LOCALIZAÇÕES (PR)-->
     <section id="pontos" class="section-padding">
         <div class="container">
             <div class="section-title">
@@ -153,7 +189,9 @@
                 <p>Confira as principais centrais de recebimento e destinação correta do estado.</p>
             </div>
 
+            <!-- Layout dividido: Lado esquerdo (Lista de postos) / Lado direito (Mapa blindado contra travamentos) -->
             <div class="grid-2col">
+                <!-- Listagem de órgãos e postos de logística reversa paranaenses reais -->
                 <div class="lista-pontos">
                     <div class="ponto-card">
                         <h4>🚜 Centrais de Recebimento InPEV / Plassane</h4>
@@ -171,10 +209,13 @@
                         <p><strong>Recebe:</strong> Pilhas, baterias de rádio, lanternas, placas de circuitos e eletrônicos obsoletos do campo.</p>
                     </div>
                 </div>
+                
+                <!-- Interface do Mapa -->
                 <div class="mapa-simulado">
                     <div class="mapa-interativo-container">
                         <p>🗺️ <strong>Rede Regional Integrada de Ecopontos</strong></p>
                         <small>Unidades ativas mapeadas em todo o Estado do Paraná.</small>
+                        <!-- Link externo que abre em nova aba (target="_blank") com efeito Hover com zoom na fonte -->
                         <a href="https://www.google.com.br/maps" target="_blank" class="btn-mapa-externo">Abrir no Google Maps Real ➔</a>
                     </div>
                 </div>
@@ -182,6 +223,7 @@
         </div>
     </section>
 
+    <!-- 📈 SEÇÃO DE ESTATÍSTICAS E GRÁFICOS-->
     <section id="estatisticas" class="section-padding bgcolor">
         <div class="container">
             <div class="section-title">
@@ -189,12 +231,15 @@
                 <p>Comparações visuais e tempo de decomposição dos materiais.</p>
             </div>
 
+            <!-- Dois blocos canvas reservados e travados via CSS (canvas-wrapper) para injeção via Chart.js -->
             <div class="grid-2col">
+                <!-- Gráfico 1: Barra (Tempo de decomposição) -->
                 <div class="chart-container">
                     <div class="canvas-wrapper">
                         <canvas id="chartDecomposicao"></canvas>
                     </div>
                 </div>
+                <!-- Gráfico 2: Rosca/Doughnut (Resíduos mais buscados) -->
                 <div class="chart-container">
                     <div class="canvas-wrapper">
                         <canvas id="chartMaisBuscados"></canvas>
@@ -204,19 +249,24 @@
         </div>
     </section>
 
+    <!--- CITAÇÃO -->
     <section class="citacao-section">
         <div class="container text-center">
+            <!-- Frase em itálico e destaque autoral da pesquisadora Vandana Shiva -->
             <p class="frase-citacao">"A agricultura sustentável não se trata apenas de cultivar alimentos, trata-se de cuidar do solo, da água, do ar e de todos os seres vivos que dependem deles."</p>
             <span class="autor-citacao">(SHIVA, [s.d.])</span>
         </div>
     </section>
 
+    <!-- RODAPÉ CORPORATIVO DA PLATAFORMA -->
     <footer>
         <div class="container footer-grid">
+            <!-- Coluna 1: Nome do projeto e slogan -->
             <div>
                 <h3>Colheita do Futuro</h3>
                 <p>Tecnologia inteligente para construir um agro forte e sustentável.</p>
             </div>
+            <!-- Coluna 2: Lista de Links úteis repetidos -->
             <div>
                 <h4>Links rápidos</h4>
                 <ul class="footer-links">
@@ -226,22 +276,29 @@
                     <li><a href="#pontos">Pontos de Coleta</a></li>
                 </ul>
             </div>
+            <!-- Coluna 3: Descrição resumida do escopo do projeto -->
             <div>
                 <h4>Sobre o projeto</h4>
                 <p>O projeto "Colheita do Futuro" consiste em um site informativo que tem como principal objetivo mostrar que é possível manter um agro forte sem prejudicar o meio ambiente.</p>
             </div>
+            <!-- Coluna 4: Informações de contato institucional e mídias sociais -->
             <div>
                 <h4>Contato</h4>
                 <p>📩 rayssa.barbosa.medeiros@escola.pr.gov.br</p>
-                    
+                <div class="redes-sociais">
+                    <span>📸 Instagram</span>   <span>👥 Facebook</span>
+                </div>
             </div>
         </div>
+        
+        <!-- Direitos autorais e tag comemorativa do Programa Agrinho -->
         <div class="footer-bottom">
             <p>© 2026 Colheita do Futuro. Todos os direitos reservados.</p>
             <p>Agrinho 2026</p>
         </div>
     </footer>
 
+    <!-- Vinculação e inicialização do arquivo lógico JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>

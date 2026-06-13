@@ -1,10 +1,10 @@
 :root {
-    --primary-green: #0b5125;      /* Verde escuro (Rodapé) */
-    --neon-green: #39ff14;         /* VERDE NEON para o efeito do mouse */
-    --light-bg-1: #d0ebd0;         /* Fundo verde claro */
-    --light-bg-2: #c2ecc2;         /* Fundo verde alternado um pouco mais forte*/
+    --primary-green: #0b5125;      /* Verde escuro corporativo (Cabeçalho/Rodapé) */
+    --neon-green: #39ff14;         /* VERDE NEON para o efeito ativo de hover */
+    --light-bg-1: #d0ebd0;         /* Fundo verde clarinho (Mais escurinho e nítido) */
+    --light-bg-2: #c2ecc2;         /* Fundo verde alternado um pouco mais pigmentado */
     --text-dark: #0b5125;          /* Títulos em verde escuro */
-    --text-body: #202731;          /* Cor textos gerais */
+    --text-body: #202731;          /* Cor escura estável para os textos gerais */
     --card-shadow: 0 4px 14px rgba(11, 81, 37, 0.1);
     --hover-shadow: 0 10px 25px rgba(57, 255, 20, 0.45);
 }
@@ -104,12 +104,14 @@ nav ul li a {
     font-weight: 600;
     padding: 6px 12px;
     border-radius: 6px;
-    transition: background 0.2s ease, color 0.2s ease;
+    transition: background 0.25s ease, color 0.25s ease, font-size 0.25s ease, letter-spacing 0.25s ease;
 }
 
 nav ul li a:hover {
     background-color: var(--neon-green);
     color: #000000;
+    font-size: 1.05rem; /* Aumenta levemente a letra no menu */
+    letter-spacing: 0.5px;
 }
 
 /* SEÇÃO HERO */
@@ -142,6 +144,7 @@ nav ul li a:hover {
     font-weight: 600;
 }
 
+/* BOTÃO PRINCIPAL COM AUMENTO DE FONTE */
 .btn-principal {
     display: inline-block;
     background-color: var(--primary-green);
@@ -153,13 +156,15 @@ nav ul li a:hover {
     font-size: 1.15rem;
     box-shadow: 0 4px 15px rgba(11, 81, 37, 0.25);
     margin-top: 25px;
-    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+    transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease, color 0.25s ease, font-size 0.25s ease, letter-spacing 0.25s ease;
 }
 
 .btn-principal:hover {
     background-color: var(--neon-green); 
     color: #000000;                      
-    transform: scale(1.06);              
+    transform: scale(1.08); /* Cresce o botão uniformemente */
+    font-size: 1.3rem;      /* Aumenta o tamanho da letra de forma nítida */
+    letter-spacing: 1px;    /* Afasta levemente as letras para dar elegância */
     box-shadow: var(--hover-shadow);     
 }
 
@@ -242,6 +247,7 @@ input[type="text"], input[type="number"], select {
     color: #000;
 }
 
+/* BOTÕES DE FUNÇÕES (PESQUISAR, CALCULAR) COM AUMENTO DE FONTE */
 .btn-funcoes {
     background-color: var(--primary-green);
     color: white;
@@ -251,14 +257,15 @@ input[type="text"], input[type="number"], select {
     cursor: pointer;
     font-weight: bold;
     font-size: 1rem;
-    transition: background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease, transform 0.15s ease;
+    transition: background-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease, transform 0.25s ease, font-size 0.25s ease;
 }
 
 .btn-funcoes:hover {
     background-color: var(--neon-green); 
     color: #000000;                      
     box-shadow: var(--hover-shadow);     
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(1.04);
+    font-size: 1.12rem; /* Aumenta a letra das ferramentas */
 }
 
 .btn-block {
@@ -327,7 +334,7 @@ input[type="text"], input[type="number"], select {
     color: #a3e635;
 }
 
-/* MAPA*/
+/* MAPA DO AGRINHO */
 .ponto-card {
     background: #ffffff;
     padding: 18px;
@@ -359,6 +366,7 @@ input[type="text"], input[type="number"], select {
     margin-bottom: 8px;
 }
 
+/* BOTÃO MAPAS COM AUMENTO DE FONTE */
 .btn-mapa-externo {
     display: inline-block;
     margin-top: 20px;
@@ -368,11 +376,14 @@ input[type="text"], input[type="number"], select {
     border-radius: 25px;
     font-weight: bold;
     text-decoration: none;
-    transition: transform 0.2s;
+    font-size: 1rem;
+    transition: transform 0.25s ease, font-size 0.25s ease, background-color 0.25s ease;
 }
 
 .btn-mapa-externo:hover {
-    transform: scale(1.05);
+    background-color: #ffffff;
+    transform: scale(1.06);
+    font-size: 1.1rem; /* Letra do botão do mapa cresce no hover */
 }
 
 /* GRÁFICOS */
@@ -446,6 +457,7 @@ footer {
 .footer-links li a {
     color: #cbd5e1;
     text-decoration: none;
+    transition: color 0.2s ease;
 }
 
 .footer-links li a:hover {
