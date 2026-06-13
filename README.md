@@ -19,7 +19,8 @@ PARANÁ. Secretaria de Estado do Desenvolvimento Sustentável (SEDEST). Plano Es
 
 SISTEMA FAEP/SENAR-PR. Regulamento Geral do Programa Agrinho 2026: categoria projetos de robótica, tecnologia e programação aplicados ao desenvolvimento sustentável. Curitiba: Sistema FAEP, 2026.
 
-Textos informativos, códigos e designer da logo do site - Autorais da aluna
+Textos informativos e códigos - Autorais da aluna
+Designer da logo - feito pela aluna ultilizando a plataforma canva
 
 (Citações bibliográficas)
 SHIVA, Vandana. [Citação sobre Agricultura Sustentável, Solo e Recursos Hídricos]. In: FRASES de Impacto Ecológico. [S. l.: s. n.], [s.d.]. Disponível em: https://www.vandanashiva.com. Acesso em: 08 jun. 2026.
